@@ -37,13 +37,27 @@ pip install -r requirements.txt
 
 ## Web dashboard
 
-Launch the song studio in your browser:
+### GitHub Pages (recommended)
+
+After pushing to `main`, enable Pages in your repo:
+
+1. Go to **Settings → Pages**
+2. Under **Build and deployment**, set **Source** to **GitHub Actions**
+3. The site deploys automatically on each push to `main`
+
+Your site will be live at: `https://brendin10.github.io/Bandland/`
+
+The Pages dashboard lets you hit **Generate Song**, listen to the full mix, preview stems, and download WAV/MIDI files — no local setup required.
+
+### Local Streamlit app
+
+For live generation with FluidSynth on your machine:
 
 ```bash
 streamlit run Bandland.py
 ```
 
-Click **Generate Song** to create a random track from the library. You can listen to the full mix, preview each stem, and download WAV or MIDI files directly. Song info (title, key, BPM, length) is shown above the player.
+Click **Generate Song** to compose a new track. Output is saved to `songs/.generated/`.
 
 ## Generate songs (CLI)
 
@@ -91,8 +105,14 @@ songs/
 3. Optionally import the `.mid` file to replace or augment parts with your own instruments.
 4. Mix, add effects, or layer additional elements per stem.
 
-## Game app
+## Where songs are saved
 
-```bash
-streamlit run Bandland.py
-```
+The first 3 pre-generated songs live in the repo under:
+
+- `songs/01_neon_nights/`
+- `songs/02_rebel_pulse/`
+- `songs/03_chrome_hearts/`
+
+Each folder contains the full mix WAV, MIDI file, `metadata.json`, and a `stems/` subfolder with individual tracks.
+
+Songs created via the Streamlit dashboard are saved to `songs/.generated/`.

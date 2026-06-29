@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bandland Song Studio</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="container">
+    <header>
+      <p class="eyebrow">Bandland</p>
+      <h1>Song Studio</h1>
+      <p class="lead">
+        Generate a 60-second instrumental track with stems for Ableton Live.
+        Arrangement: Hook → Chorus → Verse → Hook → Chorus → Outro.
+      </p>
+    </header>
+
+    <button id="generate-btn" class="btn-primary" type="button">Generate Song</button>
+    <p id="status" class="status" hidden></p>
+
+    <section id="result" class="result" hidden>
+      <div class="metrics">
+        <div class="metric">
+          <span class="label">Title</span>
+          <span id="meta-title" class="value">—</span>
+        </div>
+        <div class="metric">
+          <span class="label">Key</span>
+          <span id="meta-key" class="value">—</span>
+        </div>
+        <div class="metric">
+          <span class="label">BPM</span>
+          <span id="meta-bpm" class="value">—</span>
+        </div>
+        <div class="metric">
+          <span class="label">Length</span>
+          <span id="meta-length" class="value">—</span>
+        </div>
+      </div>
+      <p id="meta-vibe" class="vibe"></p>
+
+      <hr />
+
+      <section class="block">
+        <h2>Full Song</h2>
+        <audio id="mix-player" controls preload="none"></audio>
+        <a id="mix-download" class="btn-secondary" download>Download full mix</a>
+      </section>
+
+      <hr />
+
+      <section class="block">
+        <h2>Stems</h2>
+        <p class="hint">Individual tracks for Ableton Live — listen below or download each stem.</p>
+        <div id="stems-list" class="stems-list"></div>
+      </section>
+
+      <hr />
+
+      <section class="block">
+        <a id="midi-download" class="btn-secondary" download>Download MIDI</a>
+      </section>
+    </section>
+
+    <section id="empty" class="empty">
+      <p>Hit <strong>Generate Song</strong> to pick a track and preview it here.</p>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
