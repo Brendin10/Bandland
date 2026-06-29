@@ -1,0 +1,68 @@
+{
+  "id": "02",
+  "title": "Rebel Pulse",
+  "slug": "rebel_pulse",
+  "key": "D minor",
+  "bpm": 120,
+  "vibe": "Darker, syncopated groove",
+  "duration_seconds": 60.0,
+  "sample_rate": 48000,
+  "sections": [
+    {
+      "name": "hook",
+      "start_bar": 1,
+      "bars": 4,
+      "start_seconds": 0.0,
+      "duration_seconds": 8.0
+    },
+    {
+      "name": "chorus",
+      "start_bar": 5,
+      "bars": 8,
+      "start_seconds": 8.0,
+      "duration_seconds": 16.0
+    },
+    {
+      "name": "verse",
+      "start_bar": 13,
+      "bars": 6,
+      "start_seconds": 24.0,
+      "duration_seconds": 12.0
+    },
+    {
+      "name": "hook",
+      "start_bar": 19,
+      "bars": 4,
+      "start_seconds": 36.0,
+      "duration_seconds": 8.0
+    },
+    {
+      "name": "chorus",
+      "start_bar": 23,
+      "bars": 6,
+      "start_seconds": 44.0,
+      "duration_seconds": 12.0
+    },
+    {
+      "name": "outro",
+      "start_bar": 29,
+      "bars": 2,
+      "start_seconds": 56.0,
+      "duration_seconds": 4.0
+    }
+  ],
+  "stems": [
+    "drums",
+    "bass",
+    "chords",
+    "lead"
+  ],
+  "arrangement": [
+    "Short Hook",
+    "Chorus",
+    "Verse",
+    "Short Hook",
+    "Chorus",
+    "Short Outro"
+  ]
+}
