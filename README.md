@@ -35,7 +35,17 @@ sudo apt-get install fluidsynth fluid-soundfont-gm
 pip install -r requirements.txt
 ```
 
-## Generate songs
+## Web dashboard
+
+Launch the song studio in your browser:
+
+```bash
+streamlit run Bandland.py
+```
+
+Click **Generate Song** to create a random track from the library. You can listen to the full mix, preview each stem, and download WAV or MIDI files directly. Song info (title, key, BPM, length) is shown above the player.
+
+## Generate songs (CLI)
 
 From the project root:
 

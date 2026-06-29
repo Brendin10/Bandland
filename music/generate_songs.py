@@ -36,21 +36,29 @@ def build_metadata(song: SongDef) -> dict:
     }
 
 
-def generate_song(song: SongDef, output_root: str) -> str:
+def generate_song(song: SongDef, output_root: str) -> dict:
     folder_name = f"{song.id}_{song.slug}"
     song_dir = os.path.join(output_root, folder_name)
     os.makedirs(song_dir, exist_ok=True)
 
-    midi_path = os.path.join(song_dir, f"{song.id}_{song.slug}.mid")
+    file_base = f"{song.id}_{song.slug}"
+    midi_path = os.path.join(song_dir, f"{file_base}.mid")
     write_song_midi(song, midi_path)
 
-    render_song(midi_path, song_dir, f"{song.id}_{song.slug}")
+    rendered = render_song(midi_path, song_dir, file_base)
+    metadata = build_metadata(song)
 
     meta_path = os.path.join(song_dir, "metadata.json")
     with open(meta_path, "w", encoding="utf-8") as f:
-        json.dump(build_metadata(song), f, indent=2)
+        json.dump(metadata, f, indent=2)
 
-    return song_dir
+    return {
+        "song_dir": song_dir,
+        "metadata": metadata,
+        "midi_path": midi_path,
+        "mix_path": rendered["full_mix"],
+        "stems": {stem: rendered[stem] for stem in metadata["stems"]},
+    }
 
 
 def main(argv: list[str] | None = None) -> int:
@@ -76,8 +84,8 @@ def main(argv: list[str] | None = None) -> int:
     print(f"Generating {len(songs)} song(s) -> {args.output}/")
     for song in songs:
         print(f"  [{song.id}] {song.title} ({song.key_root} {song.key_mode})...")
-        song_dir = generate_song(song, args.output)
-        print(f"       -> {song_dir}/")
+        result = generate_song(song, args.output)
+        print(f"       -> {result['song_dir']}/")
 
     print("Done.")
     return 0
